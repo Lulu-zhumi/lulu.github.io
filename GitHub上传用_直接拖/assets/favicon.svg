@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- TODO: 把 YN 换成你姓名首字母，或改成自己的图形 -->
-  <rect width="64" height="64" rx="10" fill="#0969da"/>
-  <text x="32" y="33" text-anchor="middle" dominant-baseline="central"
-        font-family="Georgia, 'Times New Roman', serif" font-size="26" fill="#ffffff"
-        letter-spacing="1">YN</text>
-</svg>
