@@ -1,0 +1,4 @@
+# GitHub Pages 默认会尝试用 Jekyll 构建；仓库里的 .nojekyll 会跳过这一步。
+# 如果你删掉 .nojekyll 并想启用 Jekyll，可在这里补充配置。
+title: Your Name
+description: Academic homepage
