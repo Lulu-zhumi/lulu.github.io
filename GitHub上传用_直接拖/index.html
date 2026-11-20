@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Name (你的名字)</title>
+  <meta name="description" content="Personal homepage of Your Name.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- 首屏前定语言，避免闪烁；偏好记在 localStorage -->
+  <script>
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem('academic-home-lang'); } catch (e) {}
+      var lang = saved || ((navigator.language || '').toLowerCase().indexOf('zh') === 0 ? 'zh' : 'en');
+      if (lang !== 'en' && lang !== 'zh') lang = 'en';
+      document.documentElement.setAttribute('data-lang', lang);
+      document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- ===== 双语规则：每段文字都有 en / zh 两份，改内容时两份都要改 ===== -->
+  <a class="skip-link i18n" data-lang="en" href="#main">Skip to content</a>
+  <a class="skip-link i18n" data-lang="zh" href="#main">跳到正文</a>
+
+  <!-- 极简语言切换：不做导航栏，只是右上角两个小链接 -->
+  <div class="lang-switch" role="group" aria-label="Language / 语言">
+    <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+    <span aria-hidden="true">/</span>
+    <button type="button" data-set-lang="zh" aria-pressed="false">中文</button>
+  </div>
+
+  <main class="page" id="main">
+
+    <!-- ============ 身份 ============ -->
+    <header class="identity">
+      <!-- TODO: 换成你自己的头像（放 assets/ 下，改 src）；不需要头像可删掉这个 img -->
+      <img class="avatar" src="assets/avatar.svg" alt="" width="96" height="96">
+      <div class="identity-text">
+        <h1>
+          <span class="i18n" data-lang="en">Your Name (你的名字)</span>
+          <span class="i18n" data-lang="zh">你的名字 (Your Name)</span>
+        </h1>
+        <!-- 打字机那一行，文案在 main.js 顶部的 TYPE_TEXT 里改 -->
+        <p class="typeline"><span class="typed" id="typed"></span><span class="caret" aria-hidden="true">|</span></p>
+        <p class="name-alt">
+          <span class="i18n" data-lang="en">Your Name | 你的名字</span>
+          <span class="i18n" data-lang="zh">你的名字 | Your Name</span>
+        </p>
+      </div>
+    </header>
+
+    <!-- ============ 链接清单：这个页面最标志性的一块 ============ -->
+    <!-- TODO: 把 href="#" 全部换成真实地址；用不到的整条删掉；小图标可换成自己的 16×16 图片 -->
+    <ul class="link-list">
+      <li>
+        <span class="i18n" data-lang="en">Curriculum Vitae: <a href="#">CV</a>, <a href="#">Web version</a> (updated intermittently)</span>
+        <span class="i18n" data-lang="zh">简历：<a href="#">PDF 版</a>、<a href="#">网页版</a>（不定期更新）</span>
+      </li>
+      <li>
+        <span class="i18n" data-lang="en">Email address: <a href="mailto:your@email.edu">your@email.edu</a></span>
+        <span class="i18n" data-lang="zh">邮箱：<a href="mailto:your@email.edu">your@email.edu</a></span>
+      </li>
+      <li>
+        <span class="i18n" data-lang="en">Current affiliation: Your Position at Your Institute, Your University (<a href="#">personal homepage</a>; <a href="#">group homepage</a>)</span>
+        <span class="i18n" data-lang="zh">现任职位：你的大学 你的学院 你的职称（<a href="#">个人主页</a>；<a href="#">课题组主页</a>）</span>
+      </li>
+      <li><span class="i18n" data-lang="en">Google Scholar: <a href="#">Your Name</a></span><span class="i18n" data-lang="zh">Google Scholar：<a href="#">你的名字</a></span></li>
+      <li><span class="i18n" data-lang="en">ORCID: <a href="#">0000-0000-0000-0000</a></span><span class="i18n" data-lang="zh">ORCID：<a href="#">0000-0000-0000-0000</a></span></li>
+      <li><span class="i18n" data-lang="en">Inspire HEP: <a href="#">Your Name</a></span><span class="i18n" data-lang="zh">Inspire HEP：<a href="#">你的名字</a></span></li>
+      <li><span class="i18n" data-lang="en">arXiv: <a href="#">link</a></span><span class="i18n" data-lang="zh">arXiv：<a href="#">链接</a></span></li>
+      <li><span class="i18n" data-lang="en">Physics Stack Exchange: <a href="#">link</a></span><span class="i18n" data-lang="zh">Physics Stack Exchange：<a href="#">链接</a></span></li>
+      <li><span class="i18n" data-lang="en">Research blog: <a href="#">link</a></span><span class="i18n" data-lang="zh">研究博客：<a href="#">链接</a></span></li>
+      <li><span class="i18n" data-lang="en">YouTube: <a href="#">Your channel</a></span><span class="i18n" data-lang="zh">YouTube：<a href="#">你的频道</a></span></li>
+      <li><span class="i18n" data-lang="en">Zhihu: <a href="#">你的知乎</a> [In Chinese]</span><span class="i18n" data-lang="zh">知乎：<a href="#">你的知乎</a>［中文］</span></li>
+      <li><span class="i18n" data-lang="en">Twitter/X: <a href="#">Your Name</a></span><span class="i18n" data-lang="zh">Twitter/X：<a href="#">你的名字</a></span></li>
+      <li><span class="i18n" data-lang="en">Mastodon: <a href="#">Your Name</a></span><span class="i18n" data-lang="zh">Mastodon：<a href="#">你的名字</a></span></li>
+      <li><span class="i18n" data-lang="en">LinkedIn: <a href="#">Your Name</a></span><span class="i18n" data-lang="zh">LinkedIn：<a href="#">你的名字</a></span></li>
+      <li><span class="i18n" data-lang="en">GitHub: <a href="#">Your Name</a></span><span class="i18n" data-lang="zh">GitHub：<a href="#">你的名字</a></span></li>
+    </ul>
+
+    <!-- ============ 一大段自述：斜体强调关键词，不拆段 ============ -->
+    <!-- TODO: 换成你自己的研究自述；<em> 用来强调方向关键词 -->
+    <p class="intro i18n" data-lang="en">Welcome to my homepage! I am a researcher in <em>your field</em>, focusing on <em>the structures that underpin your subject</em> and its manifestations in <em>topic A</em>, <em>topic B</em>, and <em>topic C</em>. My recent work centers on <em>your main direction</em> and its <em>concrete realizations</em>, as well as <em>the framework you use</em> in both theoretical and applied settings. I began my research career in <em>your original area</em>; therefore, I also work on traditional topics there, and I am broadly interested in the intersections of <em>discipline X</em>, <em>discipline Y</em>, and <em>discipline Z</em>, especially in applying tools from one to the others. For the mathematics part, I have primarily worked on <em>your mathematical toolkit</em>, including <em>tool 1</em>, <em>tool 2</em>, <em>tool 3</em>, and <em>tool 4</em>. My research aims to develop the structures underlying this area and to reveal the deep connections between these subjects.</p>
+    <p class="intro i18n" data-lang="zh">欢迎来到我的主页！我是<em>你的领域</em>的研究者，关注<em>支撑该领域的基础结构</em>，以及它在<em>方向 A</em>、<em>方向 B</em> 与<em>方向 C</em> 中的体现。近期工作集中在<em>你的主方向</em>及其<em>具体实现</em>，也关注<em>你所使用的框架</em>在理论与应用两侧的形式。我从<em>你最初的方向</em>开始做研究，因此也持续做那里的经典问题；我广泛兴趣于<em>学科 X</em>、<em>学科 Y</em> 与<em>学科 Z</em> 的交叉，尤其喜欢把一套工具搬到另一套问题里。数学方面我主要使用<em>你的数学工具箱</em>，包括<em>工具 1</em>、<em>工具 2</em>、<em>工具 3</em> 与<em>工具 4</em>。我的目标是发展这一领域背后的结构，并揭示这些主题之间的深层联系。</p>
+
+    <!-- ============ 公式墙：这页的灵魂 ============ -->
+    <!--
+      TODO: 把下面 7 条换成你自己方向的公式。
+      这里刻意不用 MathJax/KaTeX：纯 HTML + CSS 排版，离线可用、零依赖。
+      想写复杂 LaTeX 见 README「公式进阶」一节。
+    -->
+    <div class="eq-wall" aria-label="Selected equations">
+      <div class="eq"><span class="eq-label">Hopf</span><span class="eq-body"><i>μ</i> ∘ (id ⊗ <i>S</i>) ∘ <i>Δ</i> = <i>η</i> ∘ <i>ε</i> = <i>μ</i> ∘ (<i>S</i> ⊗ id) ∘ <i>Δ</i></span></div>
+      <div class="eq"><span class="eq-label">Bulk–Boundary</span><span class="eq-body">Bulk ≃ <i>Z</i>(Boundary)</span></div>
+      <div class="eq"><span class="eq-label">TQFT</span><span class="eq-body">Cob<sub><i>d</i>+1</sub> → Hilb</span></div>
+      <div class="eq"><span class="eq-label">QECC</span><span class="eq-body"><i>R</i> ∘ <i>E</i>(<i>ϱ</i>) ∝ <i>ϱ</i></span></div>
+      <div class="eq"><span class="eq-label">Index</span><span class="eq-body">index(<i>D</i>) = ∫<sub><i>T*</i>M</sub> Ch(<i>ψ</i>(<i>σ</i><sub><i>H</i></sub>(<i>D</i>))) ∧ Td(<i>M</i>)</span></div>
+      <div class="eq"><span class="eq-label">Anyon condensation</span><span class="eq-body"><b>C</b> → Mod<sub><i>L</i></sub>(<b>C</b>) = <b>C</b><sub><i>L</i></sub></span></div>
+      <div class="eq"><span class="eq-label">SymTFT</span><span class="eq-body"><b>B</b><sub>sym</sub> + <i>Z</i>(<b>B</b><sub>sym</sub>) + <b>B</b><sub>phys</sub></span></div>
+    </div>
+
+    <p class="prose i18n" data-lang="en">For more details of my research, please refer to my <a href="#">research page</a> and <a href="#">publication/preprint page</a>. If you are interested in these topics, feel free to contact me via <a href="mailto:your@email.edu">email</a>.</p>
+    <p class="prose i18n" data-lang="zh">研究详情见我的<a href="#">研究方向页</a>与<a href="#">论文／预印本页</a>。如果你也对这些题目感兴趣，欢迎通过<a href="mailto:your@email.edu">邮件</a>联系。</p>
+
+    <!-- ============ 引文：这个页面气质的一半 ============ -->
+    <!-- TODO: 换成你自己喜欢的一句引文与出处 -->
+    <blockquote class="quote">
+      <p class="i18n" data-lang="en">“The most incomprehensible thing about the world is that it is comprehensible.”</p>
+      <p class="i18n" data-lang="zh">「这个世界最不可理解之处，在于它竟然是可以被理解的。」</p>
+      <cite class="i18n" data-lang="en">— Albert Einstein</cite>
+      <cite class="i18n" data-lang="zh">—— 阿尔伯特·爱因斯坦</cite>
+    </blockquote>
+
+    <!-- ============ 其余自述 ============ -->
+    <p class="prose i18n" data-lang="en">I am also actively engaged in academic communication through conferences, seminars, and collaborative community activities, aiming to contribute to and learn from the broader scientific community. See <a href="#">this page</a> for details about my academic activities, including the conferences and workshops I have participated in or plan to attend, as well as my editorial and reviewing work. I also actively engage in popular science communication and digital content creation in my field across multiple platforms. I enjoy discussing interesting topics with others, so feel free to reach out via <a href="mailto:your@email.edu">email</a>.</p>
+    <p class="prose i18n" data-lang="zh">我也通过会议、讨论班和学术共同体活动参与交流，希望既能有所贡献，也能从更广的共同体中学习。学术活动细节见<a href="#">这一页</a>：包括参加过或计划参加的会议与研讨班，以及审稿和编辑工作。我也会在多个平台做本领域相关的科普与内容创作。我很乐意和别人聊有意思的问题，欢迎<a href="mailto:your@email.edu">来信</a>。</p>
+
+    <p class="prose i18n" data-lang="en">Beyond my work, I enjoy reading books—some of my favorites are <em>"One Hundred Years of Solitude"</em>, <em>"Don Quixote"</em>, <em>"Moby-Dick"</em>, <em>"The Brothers Karamazov"</em>, <em>"On the Road"</em>, <em>"Pale Blue Dot"</em>—as well as traveling and writing. Check <a href="#">this link</a> (in Chinese) for my 2026 reading list.</p>
+    <p class="prose i18n" data-lang="zh">工作之外我喜欢读书——偏爱《百年孤独》《堂吉诃德》《白鲸》《卡拉马佐夫兄弟》《在路上》《暗淡蓝点》——也喜欢旅行和写作。<a href="#">这个链接</a>（中文）是我的 2026 年阅读清单。</p>
+
+    <!-- ============ 一张图 + 一行说明 ============ -->
+    <!-- TODO: 换成你自己的图 / GIF，改 src 与说明文字 -->
+    <figure class="figure">
+      <img src="assets/lattice.svg" alt="" width="420" height="180">
+      <figcaption>
+        <span class="i18n" data-lang="en">Figure based on your own diagram. Replace with an image or GIF you like.</span>
+        <span class="i18n" data-lang="zh">示意图占位，可换成你自己的图片或动图。</span>
+      </figcaption>
+    </figure>
+
+    <hr>
+
+    <!-- ============ 资源区 ============ -->
+    <h2>
+      <span class="i18n" data-lang="en">Some Resources</span>
+      <span class="i18n" data-lang="zh">一些资源</span>
+    </h2>
+    <ul class="resource-list">
+      <li>
+        <span class="i18n" data-lang="en"><strong>Your Topic ArXiv Daily</strong>: a page updated automatically every eight hours using the arXiv API and GitHub Actions; a keyword list will be given later.</span>
+        <span class="i18n" data-lang="zh"><strong>你的方向 ArXiv Daily</strong>：用 arXiv API 与 GitHub Actions 每八小时自动更新的页面；关键词列表稍后补上。</span>
+      </li>
+      <li>
+        <span class="i18n" data-lang="en"><strong>Another Topic ArXiv Daily</strong>: automatically collecting arXiv papers in a neighbouring area.</span>
+        <span class="i18n" data-lang="zh"><strong>另一个方向 ArXiv Daily</strong>：自动汇总相邻领域的 arXiv 论文。</span>
+      </li>
+    </ul>
+
+    <hr>
+
+    <!-- ============ 时间线新闻 ============ -->
+    <h2>
+      <span class="i18n" data-lang="en">Latest news</span>
+      <span class="i18n" data-lang="zh">最新动态</span>
+    </h2>
+    <p class="prose i18n" data-lang="en">Check <a href="#">this link</a> for the latest updates since 2022.</p>
+    <p class="prose i18n" data-lang="zh">2022 年以来的完整更新见<a href="#">这个链接</a>。</p>
+
+    <!-- TODO: 换成你自己的动态；新增一条复制整个 <li>，en / zh 两份都要写 -->
+    <ul class="news-list">
+      <li>
+        <time datetime="2026-11">2026/11/20</time>
+        <span class="i18n" data-lang="en">A new preprint is now available on arXiv. This is a collaborative work with Your Collaborator.</span>
+        <span class="i18n" data-lang="zh">新预印本上线 arXiv，与你的合作者共同完成。</span>
+      </li>
+      <li>
+        <time datetime="2026-10">2026/10/08</time>
+        <span class="i18n" data-lang="en">I gave a talk titled "A Placeholder Title on Your Topic" at Your University.</span>
+        <span class="i18n" data-lang="zh">在 你的大学 作报告，题目为《一个关于你方向的占位标题》。</span>
+      </li>
+      <li>
+        <time datetime="2026-09">2026/09/01</time>
+        <span class="i18n" data-lang="en">Our paper "A Placeholder Paper Title" is now published in Your Journal.</span>
+        <span class="i18n" data-lang="zh">论文《一个占位论文标题》在 Your Journal 正式发表。</span>
+      </li>
+      <li>
+        <time datetime="2026-07">2026/07/05-08</time>
+        <span class="i18n" data-lang="en">Participated YourConference 2026.</span>
+        <span class="i18n" data-lang="zh">参加 YourConference 2026。</span>
+      </li>
+      <li>
+        <time datetime="2026-06">2026/06/18</time>
+        <span class="i18n" data-lang="en">I gave a talk titled "Another Placeholder Title" in the workshop on Your Topic.</span>
+        <span class="i18n" data-lang="zh">在 你的方向 研讨班作报告，题目为《另一个占位标题》。</span>
+      </li>
+      <li>
+        <time datetime="2026-03">2026/03/01</time>
+        <span class="i18n" data-lang="en">My first book "A Placeholder Book Title" is now published by Your Press.</span>
+        <span class="i18n" data-lang="zh">我的第一本书《一个占位书名》由 你的出版社 出版。</span>
+      </li>
+    </ul>
+
+    <p class="news-more">
+      <span class="i18n" data-lang="en"><a href="#">Older News</a> · <a href="#">Read more</a></span>
+      <span class="i18n" data-lang="zh"><a href="#">更早的动态</a> · <a href="#">查看更多</a></span>
+    </p>
+
+    <footer class="site-footer">
+      <p>© <span data-year>2026</span> <span class="i18n" data-lang="en">Your Name</span><span class="i18n" data-lang="zh">你的名字</span> · <span class="i18n" data-lang="en">Plain HTML, no build step.</span><span class="i18n" data-lang="zh">纯 HTML，无需构建。</span></p>
+    </footer>
+  </main>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
